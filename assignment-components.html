@@ -1,0 +1,55 @@
+// 1. Peruse the Official React documentation by Facebook, note down anything
+//interesting you find and discuss learnings with your mentor and Bloc Slack 
+//community. In addition, discuss with your mentor a strategy to read documentation
+//more efficiently. This is a critically important skill to develop as software
+//developer, as technologies keep evolving.
+
+// A: 
+// Interesting Findings: 
+// 1. JSX is optional, but recommended. 
+// 2. JSX looks like HTML, but it's actually a syntax extension to JS. 
+// 3. Elements describe what you want to see on the screen. 
+// 4. Elements are immutable. 
+// 5. React DOM only updates what's necessary, meaning only the specific changes. 
+// 6. Components are like JS functions and take inputs called, 'props'. 
+// 7. Components can also be defined as a class constructor function. 
+// 8. Conditional Rendering in React works similarly to conditions in JS. 
+
+// 2. Referring to the official documentation, build another simple React 
+//component from scratch similar to the one we built. Discuss your experience 
+//building the component from scratch with your mentor.
+
+// A: 
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React App</title>
+    </head>
+    <body>
+        <div id="firstApp"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    
+        <script type="text/babel">
+        class SayHello extends React.Component {
+            render(){
+                return (
+                    <div>
+                    <h1>Hello, Bethany!</h1>
+                    <ul>
+                    <li>This is my first React App</li>
+                    </ul>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <SayHello />, document.getElementById('firstApp')
+        );
+        </script>
+    </body>
+</html>
