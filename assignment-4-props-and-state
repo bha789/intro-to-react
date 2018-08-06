@@ -1,0 +1,72 @@
+// 1. In your own words, explain the essential differences between props 
+// and state in React. Which is immutable or read-only, and which changes? 
+// Discuss the answer with your mentor.
+
+// A: 
+// Props are properties in a comonent that are read-only and cannot be manipulated.  
+// They are passed into a component as an argument. You can also pass functions and 
+// event handlers as props.
+
+// State is read-write data that means it can be manipulated. Components can have
+// state by setting, this.state, inside the constructor. Whenever state is changed, 
+// then the DOM will re-render just those nodes that were altered. 
+
+// 2. Read the React official documentation on components and props, 
+// and brush up on JavaScript ES6 *classes
+
+// A: Done. 
+
+// 3. Built upon your component from the assignment after checkpoint 3, 
+// add in state and props to make sure you have fully mastered these core
+// React properties.
+
+// A: 
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React App</title>
+    </head>
+    <body>
+        <div id="firstApp"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    
+        <script type="text/babel">
+        class SayHello extends React.Component {
+            constructor(props){
+                super(props);
+                this.state = {
+                    month: 'August'
+                }
+            }
+            render(){
+                return (
+                    <div>
+                    <h1>Hello, {this.props.name}!</h1>
+                    <h3>Current Month: {this.state.month}</h3>
+                    <p>Current Date: {this.props.date.toLocaleDateString()}</p>
+                    <p>I hope it's not too hot in {this.props.state}!</p>
+                    <img src = {this.props.image} alt = 'cacuts landscape'/>
+                    </div>
+                );
+            }
+        }
+
+        const info = {
+            date: new Date(), 
+            image: 'https://s22.postimg.cc/hnlw6plz5/pexels-photo-764998.jpg'
+        }
+
+        ReactDOM.render(
+            <SayHello 
+            name = 'Bethany' 
+            date = {info.date}
+            image = {info.image}
+            state = 'Arizona' />, document.getElementById('firstApp')  
+        );
+        </script>
+    </body>
+</html>
